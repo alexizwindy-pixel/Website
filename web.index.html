@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #08000f;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Background */
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 20%, #6b174d55, transparent 30%),
+                radial-gradient(circle at 80% 80%, #9b1b5c44, transparent 30%),
+                #08000f;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: .2; transform: scale(.5); }
+            to { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 0, 15, .55);
+            backdrop-filter: blur(15px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff7eb6;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #ff6fae;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .small-title {
+            color: #ff7eb6;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(55px, 10vw, 120px);
+            line-height: .95;
+            margin-bottom: 30px;
+            background: linear-gradient(
+                90deg,
+                #fff,
+                #ff72ad,
+                #fff
+            );
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 4s infinite linear;
+        }
+
+        @keyframes gradient {
+            to {
+                background-position: 200%;
+            }
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #d7c8d3;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        .heart {
+            font-size: 60px;
+            margin-top: 30px;
+            animation: heartbeat 1.2s infinite;
+            filter: drop-shadow(0 0 20px #ff3f91);
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.2); }
+        }
+
+        /* Sections */
+        section {
+            padding: 110px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #aaa;
+        }
+
+        /* Glass Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            padding: 40px 30px;
+            border-radius: 25px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.1);
+            backdrop-filter: blur(15px);
+            transition: .4s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: #ff4f9a;
+            box-shadow: 0 20px 50px #ff287333;
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #ff8abb;
+        }
+
+        .card p {
+            color: #c7bbc4;
+            line-height: 1.7;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(#ff4d9a, transparent);
+        }
+
+        .event {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        .event:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .event-box {
+            padding: 25px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .event-box h3 {
+            color: #ff7eb6;
+            margin-bottom: 10px;
+        }
+
+        .event-box p {
+            color: #c8bec5;
+            line-height: 1.6;
+        }
+
+        /* Counter */
+        .counter {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        #days {
+            font-size: 80px;
+            font-weight: bold;
+            color: #ff70ae;
+            text-shadow: 0 0 30px #ff3f91;
+        }
+
+        .counter p {
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        /* Button */
+        .love-button {
+            margin-top: 30px;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #ff3f91, #ff78b8);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: .3s;
+            box-shadow: 0 0 25px #ff3f9166;
+        }
+
+        .love-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 40px #ff3f91aa;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid rgba(255,255,255,.08);
+            color: #999;
+        }
+
+        footer span {
+            color: #ff6fab;
+        }
+
+        /* Floating Hearts */
+        .floating-heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 20px;
+            animation: floatUp 6s linear forwards;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .event,
+            .event:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 40px;
+            }
+
+            #days {
+                font-size: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background" id="stars"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Forever<span>♡</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#memories">Memories</a></li>
+            <li><a href="#love">Love</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                A little story about us
+            </div>
+
+            <h1>
+                You & Me
+            </h1>
+
+            <p>
+                In a world full of people,
+                somehow our paths crossed.
+                And since then, every ordinary moment
+                has felt a little more beautiful.
+            </p>
+
+            <div class="heart">♥</div>
+
+            <button class="love-button" onclick="showLove()">
+                Click My Heart ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Memories -->
+    <section id="memories">
+
+        <div class="section-title">
+            <h2>Little Things I Love</h2>
+            <p>It's always the little moments.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🌙</div>
+                <h3>Late Night Talks</h3>
+                <p>
+                    Talking about everything and nothing
+                    until we forget what time it is.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌹</div>
+                <h3>Your Smile</h3>
+                <p>
+                    Somehow your smile can make
+                    even my worst days feel better.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">✨</div>
+                <h3>Our Moments</h3>
+                <p>
+                    Simple moments become unforgettable
+                    when they are spent with you.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Timeline -->
+    <section id="story">
+
+        <div class="section-title">
+            <h2>Our Story</h2>
+            <p>Every love story has a beginning.</p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="event">
+                <div class="event-box">
+                    <h3>01 — The Beginning</h3>
+                    <p>
+                        The day two strangers slowly
+                        became something more.
+                    </p>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="event-box">
+                    <h3>02 — Getting Closer</h3>
+                    <p>
+                        More conversations, more laughs,
+                        and more reasons to stay.
+                    </p>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="event-box">
+                    <h3>03 — Our Memories</h3>
+                    <p>
+                        We created little memories
+                        that became the best parts of our story.
+                    </p>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="event-box">
+                    <h3>04 — Still Us</h3>
+                    <p>
+                        Through every high and low,
+                        somehow it's still you.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Love Counter -->
+    <section id="love">
+
+        <div class="counter">
+
+            <div class="section-title">
+                <h2>Time With You</h2>
+                <p>Every day is another page of our story.</p>
+            </div>
+
+            <div id="days">0</div>
+
+            <p>Days of beautiful memories ❤️</p>
+
+            <button class="love-button" onclick="showLove()">
+                One More Surprise 💌
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Made with <span>♥</span> for someone special.
+    </footer>
+
+
+    <script>
+
+        /* Stars */
+        const stars = document.getElementById("stars");
+
+        for (let i = 0; i < 100; i++) {
+
+            const star = document.createElement("div");
+
+            star.classList.add("star");
+
+            star.style.left = Math.random() * 100 + "%";
+            star.style.top = Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 2 + "s";
+
+            stars.appendChild(star);
+        }
+
+
+        /* Love Counter */
+        const startDate = new Date("2022-01-01");
+
+        function updateDays() {
+
+            const today = new Date();
+
+            const difference =
+                today - startDate;
+
+            const days =
+                Math.floor(
+                    difference /
+                    (1000 * 60 * 60 * 24)
+                );
+
+            document.getElementById("days")
+                .textContent = days;
+        }
+
+        updateDays();
+
+
+        /* Surprise */
+        function showLove() {
+
+            alert(
+                "If I had to choose again...\n" +
+                "I would still choose you. ❤️"
+            );
+
+            createHearts();
+        }
+
+
+        /* Floating Hearts */
+        function createHearts() {
+
+            for (let i = 0; i < 15; i++) {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.className =
+                    "floating-heart";
+
+                heart.textContent =
+                    ["❤️", "💕", "💗", "💖", "💘"]
+                    [Math.floor(Math.random() * 5)];
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+                heart.style.animationDuration =
+                    (4 + Math.random() * 4) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 8000);
+            }
+        }
+
+        /* Automatic hearts */
+        setInterval(createHearts, 7000);
+
+    </script>
+
+</body>
+</html>
