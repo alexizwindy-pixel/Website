@@ -2,623 +2,410 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story ❤️</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
-
-        body {
-            background: #08000f;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* Background */
-        .background {
-            position: fixed;
-            inset: 0;
-            overflow: hidden;
-            z-index: -1;
-            background:
-                radial-gradient(circle at 20% 20%, #6b174d55, transparent 30%),
-                radial-gradient(circle at 80% 80%, #9b1b5c44, transparent 30%),
-                #08000f;
-        }
-
-        .star {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite alternate;
-        }
-
-        @keyframes twinkle {
-            from { opacity: .2; transform: scale(.5); }
-            to { opacity: 1; transform: scale(1.5); }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(8, 0, 15, .55);
-            backdrop-filter: blur(15px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(255,255,255,.08);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff7eb6;
-        }
-
-        .logo span {
-            color: white;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: .3s;
-        }
-
-        nav a:hover {
-            color: #ff6fae;
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .small-title {
-            color: #ff7eb6;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: clamp(55px, 10vw, 120px);
-            line-height: .95;
-            margin-bottom: 30px;
-            background: linear-gradient(
-                90deg,
-                #fff,
-                #ff72ad,
-                #fff
-            );
-            background-size: 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient 4s infinite linear;
-        }
-
-        @keyframes gradient {
-            to {
-                background-position: 200%;
-            }
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #d7c8d3;
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.8;
-        }
-
-        .heart {
-            font-size: 60px;
-            margin-top: 30px;
-            animation: heartbeat 1.2s infinite;
-            filter: drop-shadow(0 0 20px #ff3f91);
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            15% { transform: scale(1.3); }
-            30% { transform: scale(1); }
-            45% { transform: scale(1.2); }
-        }
-
-        /* Sections */
-        section {
-            padding: 110px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: #aaa;
-        }
-
-        /* Glass Cards */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .card {
-            padding: 40px 30px;
-            border-radius: 25px;
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.1);
-            backdrop-filter: blur(15px);
-            transition: .4s;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            border-color: #ff4f9a;
-            box-shadow: 0 20px 50px #ff287333;
-        }
-
-        .card .icon {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            color: #ff8abb;
-        }
-
-        .card p {
-            color: #c7bbc4;
-            line-height: 1.7;
-        }
-
-        /* Timeline */
-        .timeline {
-            max-width: 850px;
-            margin: auto;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(#ff4d9a, transparent);
-        }
-
-        .event {
-            width: 50%;
-            padding: 20px 40px;
-            position: relative;
-        }
-
-        .event:nth-child(even) {
-            margin-left: 50%;
-        }
-
-        .event-box {
-            padding: 25px;
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .event-box h3 {
-            color: #ff7eb6;
-            margin-bottom: 10px;
-        }
-
-        .event-box p {
-            color: #c8bec5;
-            line-height: 1.6;
-        }
-
-        /* Counter */
-        .counter {
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        #days {
-            font-size: 80px;
-            font-weight: bold;
-            color: #ff70ae;
-            text-shadow: 0 0 30px #ff3f91;
-        }
-
-        .counter p {
-            color: #ccc;
-            font-size: 18px;
-        }
-
-        /* Button */
-        .love-button {
-            margin-top: 30px;
-            padding: 15px 35px;
-            border: none;
-            border-radius: 50px;
-            background: linear-gradient(90deg, #ff3f91, #ff78b8);
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: .3s;
-            box-shadow: 0 0 25px #ff3f9166;
-        }
-
-        .love-button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 40px #ff3f91aa;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            border-top: 1px solid rgba(255,255,255,.08);
-            color: #999;
-        }
-
-        footer span {
-            color: #ff6fab;
-        }
-
-        /* Floating Hearts */
-        .floating-heart {
-            position: fixed;
-            bottom: -50px;
-            font-size: 20px;
-            animation: floatUp 6s linear forwards;
-            pointer-events: none;
-            z-index: 50;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 800px) {
-
-            nav ul {
-                display: none;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline::before {
-                left: 10px;
-            }
-
-            .event,
-            .event:nth-child(even) {
-                width: 100%;
-                margin-left: 0;
-                padding-left: 40px;
-            }
-
-            #days {
-                font-size: 55px;
-            }
-        }
-    </style>
+    <meta name="keywords" content="jigar sable, portfolio, jigar, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
+    <meta name="description" content="Welcome to Jigar's Portfolio. Full-Stack Web Developer and Android App Developer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
+    <title>Portfolio | Jigar Sable</title>
 </head>
+<body oncontextmenu="return false">
 
-<body>
+<!-- pre loader -->
+<!-- <div class="loader-container">
+  <img draggable="false" src="./assets/images/preloader.gif" alt="">
+</div> -->
 
-    <div class="background" id="stars"></div>
+<!-- navbar starts -->
+<header>
+        <a href="/" class="logo"><i class="fab fa-node-js"></i> Jigar</a>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Forever<span>♡</span></div>
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+</header>
+<!-- navbar ends -->
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#memories">Memories</a></li>
-            <li><a href="#love">Love</a></li>
+
+<!-- hero section starts -->
+<section class="home" id="home">
+    <div id="particles-js"></div>
+
+    <div class="content">
+    <h2>Hi There,<br/> I'm Jigar <span>Sable</span></h2>
+    <p>i am into <span class="typing-text"></span></p>
+    <a href="#about" class="btn"><span>About Me</span>
+      <i class="fas fa-arrow-circle-down"></i>
+    </a>
+    <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/jigar-sable/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="github" aria-label="GitHub" href="https://github.com/jigar-sable" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a class="twitter" aria-label="Twitter" href="https://twitter.com/jigar_sable" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li><a class="telegram" aria-label="Telegram" href="https://t.me/lifecode5" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
+          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/jigarsable.dev"><i class="fab fa-instagram" target="_blank"></i></a></li>
+          <li><a class="dev" aria-label="Dev" href="https://dev.to/jigarsable" target="_blank"><i class="fab fa-dev"></i></a></li>
         </ul>
-    </nav>
+      </div>
+    </div>
+<div class="image">
+    <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="">
+</div>
+</section>
+<!-- hero section ends -->
 
-    <!-- Hero -->
-    <section class="hero" id="home">
 
-        <div class="hero-content">
+<!-- about section starts -->
+<section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+    
+    <div class="row">
 
-            <div class="small-title">
-                A little story about us
+    <div class="image">
+        <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="">
+    </div>
+    <div class="content">
+        <h3>I'm Jigar</h3>
+        <span class="tag">Full Stack Developer</span>
+        
+        <p>I am a Full-Stack developer based in Pune, India. 
+          I am an Information Technology undergraduate from SPPU.
+          I am very passionate about improving my coding skills & developing applications & websites.
+          I build WebApps and Websites using MERN Stack.
+          Working for myself to improve my skills.
+          Love to build Full-Stack clones. </p>
+        
+        <div class="box-container">
+            <!-- <div class="box">
+              <p><span> age: </span> 20</p>
+              <p><span> phone : </span> +91 XXX-XXX-XXXX</p>
+            </div> -->
+            <div class="box">
+              <p><span> email : </span> jigarsable21@gmail.com</p>
+              <p><span> place : </span> Pune, India - 412206</p>
             </div>
-
-            <h1>
-                You & Me
-            </h1>
-
-            <p>
-                In a world full of people,
-                somehow our paths crossed.
-                And since then, every ordinary moment
-                has felt a little more beautiful.
-            </p>
-
-            <div class="heart">♥</div>
-
-            <button class="love-button" onclick="showLove()">
-                Click My Heart ❤️
-            </button>
-
+        </div>
+        
+        <div class="resumebtn">
+            <a href="https://drive.google.com/file/d/1rZiXl562q7aVyk1kJ2nO85YBAq8ixTiw/view" target="_blank" class="btn"><span>Resume</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
         </div>
 
-    </section>
+    </div>
+    </div>
+</section>
+<!-- about section ends -->
+
+<!-- skills section starts -->
+<section class="skills" id="skills">
+
+    <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
+
+    <div class="container">
+          <div class="row" id="skillsContainer">
+
+            <!-- <div class="bar">
+              <div class="info">
+                <img src="https://img.icons8.com/color/48/000000/adobe-xd.png"/>
+                <span>AdobeXD</span>
+              </div>
+            </div> -->
+
+      </div>
+</div>
+</section>
+<!-- skills section ends -->
 
 
-    <!-- Memories -->
-    <section id="memories">
+<!-- education section starts -->
+<section class="education" id="education">
 
-        <div class="section-title">
-            <h2>Little Things I Love</h2>
-            <p>It's always the little moments.</p>
+  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+
+    <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
+
+    <div class="box-container">
+
+    <div class="box">
+        <div class="image">
+        <img draggable="false" src="./assets/images/educat/college.jpg" alt="">
         </div>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="icon">🌙</div>
-                <h3>Late Night Talks</h3>
-                <p>
-                    Talking about everything and nothing
-                    until we forget what time it is.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🌹</div>
-                <h3>Your Smile</h3>
-                <p>
-                    Somehow your smile can make
-                    even my worst days feel better.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">✨</div>
-                <h3>Our Moments</h3>
-                <p>
-                    Simple moments become unforgettable
-                    when they are spent with you.
-                </p>
-            </div>
-
+        <div class="content">
+        <h3>Bachelor of Engineering in Information Technology</h3>
+        <p>Zeal College of engineering and research | SPPU</p>
+        <h4>2020-2024 | Pursuing</h4>
         </div>
+    </div>
 
-    </section>
+    <div class="box">
+      <div class="image">
+      <img draggable="false" src="./assets/images/educat/school.jpg" alt="">
+      </div>
+      <div class="content">
+      <h3>HSC Science | Informatic Practices</h3>
+      <p>Shri  L. G. Haria Multipurpose School | CBSE</p>
+      <h4>2018-2020 | Completed</h4>
+      </div>
+    </div>
+
+</div>
+</section>
+<!-- education section ends -->
 
 
-    <!-- Timeline -->
-    <section id="story">
+<!-- work project section starts -->
+<section class="work" id="work">
 
-        <div class="section-title">
-            <h2>Our Story</h2>
-            <p>Every love story has a beginning.</p>
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
+
+  <div class="box-container">
+
+    <!-- <div class="box tilt">
+      <img draggable="false" src="./assets/images/projects/portfolio1.PNG" alt="" />
+      <div class="content">
+        <div class="tag">
+        <h3>Portfolio Website</h3>
         </div>
-
-        <div class="timeline">
-
-            <div class="event">
-                <div class="event-box">
-                    <h3>01 — The Beginning</h3>
-                    <p>
-                        The day two strangers slowly
-                        became something more.
-                    </p>
-                </div>
-            </div>
-
-            <div class="event">
-                <div class="event-box">
-                    <h3>02 — Getting Closer</h3>
-                    <p>
-                        More conversations, more laughs,
-                        and more reasons to stay.
-                    </p>
-                </div>
-            </div>
-
-            <div class="event">
-                <div class="event-box">
-                    <h3>03 — Our Memories</h3>
-                    <p>
-                        We created little memories
-                        that became the best parts of our story.
-                    </p>
-                </div>
-            </div>
-
-            <div class="event">
-                <div class="event-box">
-                    <h3>04 — Still Us</h3>
-                    <p>
-                        Through every high and low,
-                        somehow it's still you.
-                    </p>
-                </div>
-            </div>
-
+        <div class="desc">
+          <p>Personal portfolio website. Don't need much info about it, just scroll down. You're here only!</p>
+          <div class="btns">
+            <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="https://github.com/jigar-sable/Portfolio-Website" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+          </div>
         </div>
+      </div>
+    </div> -->
 
-    </section>
+</div>
 
+<div class="viewall">
+  <a href="/projects" class="btn"><span>View All</span>
+    <i class="fas fa-arrow-right"></i>
+</a>
+</div>
 
-    <!-- Love Counter -->
-    <section id="love">
+</section>
+<!-- work project section ends -->
 
-        <div class="counter">
+<!-- experience section starts -->
+<section class="experience" id="experience">
 
-            <div class="section-title">
-                <h2>Time With You</h2>
-                <p>Every day is another page of our story.</p>
-            </div>
+  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
 
-            <div id="days">0</div>
+  <div class="timeline">
 
-            <p>Days of beautiful memories ❤️</p>
-
-            <button class="love-button" onclick="showLove()">
-                One More Surprise 💌
-            </button>
-
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Self Employed</h2>
         </div>
+        <div class="desc">
+            <h3>Full Stack Developer</h3>
+            <p>Oct 2021 - present</p>
+        </div>
+      </div>
+    </div>
 
-    </section>
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+          <h2>Mapstreak Flyseas</h2>
+        </div>
+        <div class="desc">
+            <h3>Web Developer | Internship</h3>
+            <p>June 2021 - Dec 2021</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>The Spark Foundation</h2>
+        </div>
+        <div class="desc">
+            <h3>Website Developer | Internship</h3>
+            <p>May 2021 - June 2021</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+          <h2>The Spark Foundation</h2>
+        </div>
+        <div class="desc">
+            <h3>Mobile Application Developer | Internship</h3>
+            <p>April 2021 - May 2021</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Frshr Technologies</h2>
+        </div>
+        <div class="desc">
+            <h3>Wordpress Developer | Internship</h3>
+            <p>April 2021 - April 2021</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+          <h2>WonderingBlog</h2>
+        </div>
+        <div class="desc">
+            <h3>Web Development & SEO | Internship</h3>
+            <p>March 2021 - April 2021</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="morebtn">
+    <a href="/experience" class="btn"><span>View All</span>
+      <i class="fas fa-arrow-right"></i>
+  </a>
+  </div>
+
+</div>
+
+</section>
+<!-- experience section ends -->
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+  
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
+
+  <div class="container">
+    <div class="content">
+      <div class="image-box">
+        <img draggable="false" src="./assets/images/contact1.png" alt="">
+      </div>
+    <form id="contact-form">
+      
+      <div class="form-group">
+        <div class="field">
+          <input type="text" name="name" placeholder="Name" required>
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="email" placeholder="Email" required>
+          <i class='fas fa-envelope'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="phone" placeholder="Phone">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="message">
+        <textarea placeholder="Message" name="message" required></textarea>
+        <i class="fas fa-comment-dots"></i>
+        </div>
+        </div>
+      <div class="button-area">
+        <button type="submit">
+          Submit <i class="fa fa-paper-plane"></i></button>
+      </div>
+    </form>
+  </div>
+  </div>
+</section>
+<!-- contact section ends -->
 
 
-    <footer>
-        Made with <span>♥</span> for someone special.
-    </footer>
+<!-- footer section starts -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box">
+          <h3>Jigar's Portfolio</h3>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
+      </div>
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
+          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-phone"></i>+91 XXX-XXX-XXXX</p>
+          <p> <i class="fas fa-envelope"></i>jigarsable21@gmail.com</p>
+          <p> <i class="fas fa-map-marked-alt"></i>Pune, India-412206</p>
+          <div class="share">
+
+              <a href="https://www.linkedin.com/in/jigar-sable" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              <a href="https://github.com/jigar-sable" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+              <a href="mailto:jigarsable21@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
+              <a href="https://twitter.com/jigar_sable" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
+              <a href="https://t.me/lifecode5" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
+          </div>
+      </div>
+  </div>
+
+  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/jigar-sable"> jigar sable</a></h1>
+
+</section>
+<!-- footer section ends -->
 
 
-    <script>
-
-        /* Stars */
-        const stars = document.getElementById("stars");
-
-        for (let i = 0; i < 100; i++) {
-
-            const star = document.createElement("div");
-
-            star.classList.add("star");
-
-            star.style.left = Math.random() * 100 + "%";
-            star.style.top = Math.random() * 100 + "%";
-
-            star.style.animationDelay =
-                Math.random() * 2 + "s";
-
-            stars.appendChild(star);
-        }
+<!-- scroll top btn -->
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- scroll back to top -->
 
 
-        /* Love Counter */
-        const startDate = new Date("2022-01-01");
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        function updateDays() {
+<!-- typed.js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-            const today = new Date();
+<!-- particle.js links -->
+<script src="./assets/js/particles.min.js"></script>
+<script src="./assets/js/app.js"></script>
 
-            const difference =
-                today - startDate;
+<!-- vanilla tilt.js links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-            const days =
-                Math.floor(
-                    difference /
-                    (1000 * 60 * 60 * 24)
-                );
+<!-- scroll reveal anim -->
+<script src="https://unpkg.com/scrollreveal"></script>
 
-            document.getElementById("days")
-                .textContent = days;
-        }
+<script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
 
-        updateDays();
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
 
-
-        /* Surprise */
-        function showLove() {
-
-            alert(
-                "If I had to choose again...\n" +
-                "I would still choose you. ❤️"
-            );
-
-            createHearts();
-        }
-
-
-        /* Floating Hearts */
-        function createHearts() {
-
-            for (let i = 0; i < 15; i++) {
-
-                const heart =
-                    document.createElement("div");
-
-                heart.className =
-                    "floating-heart";
-
-                heart.textContent =
-                    ["❤️", "💕", "💗", "💖", "💘"]
-                    [Math.floor(Math.random() * 5)];
-
-                heart.style.left =
-                    Math.random() * 100 + "vw";
-
-                heart.style.animationDuration =
-                    (4 + Math.random() * 4) + "s";
-
-                document.body.appendChild(heart);
-
-                setTimeout(() => {
-                    heart.remove();
-                }, 8000);
-            }
-        }
-
-        /* Automatic hearts */
-        setInterval(createHearts, 7000);
-
-    </script>
+<script src="./assets/js/script.js"></script>
 
 </body>
 </html>
